@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 block">
+        {%for agenda in agendas %}
+            <div class="agenda-item">
+                <h2 class="name">{{agenda.date}} | {{agenda.name}}</h2>
+                <p><span>{{ agenda.start}} - {{agenda.end}} @ {{agenda.location}}</span></p>
+            </div>
+        {%endfor%}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: rebel59.calendar::lang.models.agenda.name
+    date:
+        label: rebel59.calendar::lang.models.agenda.date
+        type: date
+    start:
+        label: rebel59.calendar::lang.models.agenda.start_time
+    end:
+        label: rebel59.calendar::lang.models.agenda.end_time
+    location:
+        label: rebel59.calendar::lang.models.agenda.location

@@ -1,0 +1,19 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('rebel59/calendar/agendas') ?>">?= e(trans('rebel59.calendar::lang.models.agenda.name_plural')) ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="form-preview">
+        <?= $this->formRenderPreview() ?>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('rebel59/calendar/agendas') ?>" class="btn btn-default">?= e(trans('rebel59.calendar::lang.models.agenda.return_agendas')) ?></a></p>
+
+<?php endif ?>

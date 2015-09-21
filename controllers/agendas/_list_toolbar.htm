@@ -1,0 +1,17 @@
+<div data-control="toolbar">
+    <a href="<?= Backend::url('rebel59/calendar/agendas/create') ?>" class="btn btn-primary oc-icon-plus"><?=e(trans('rebel59.calendar::lang.models.agenda.new_agenda')) ?></a>
+        <button
+            class="btn btn-default oc-icon-trash-o"
+            disabled="disabled"
+            onclick="$(this).data('request-data', {
+                checked: $('.control-list').listWidget('getChecked')
+            })"
+            data-request="onDelete"
+            data-request-confirm="Confirm"
+            data-trigger-type="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-stripe-load-indicator>
+            <?= e(trans('rebel59.calendar::lang.models.agenda.delete_agenda')) ?>
+        </button>
+</div>

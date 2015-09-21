@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: rebel59.calendar::lang.models.agenda.name
+
+# Model Form Field configuration
+form: $/rebel59/calendar/models/agenda/fields.yaml
+
+# Model Class name
+modelClass: Rebel59\Calendar\Models\Agenda
+
+# Default redirect location
+defaultRedirect: Rebel59/Calendar/agendas
+
+# Create page
+create:
+    title: rebel59.calendar::lang.models.agenda.create_agenda
+    redirect: rebel59/calendar/agendas/update/:id
+    redirectClose: rebel59/calendar/agendas
+
+# Update page
+update:
+    title: rebel59.calendar::lang.models.agenda.edit_agenda
+    redirect: rebel59/calendar/agendas
+    redirectClose: rebel59/calendar/agendas
+
+# Preview page
+preview:
+    title: rebel59.calendar::lang.models.agenda.preview_agenda
