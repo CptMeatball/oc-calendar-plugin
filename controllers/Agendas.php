@@ -25,11 +25,6 @@ class Agendas extends Controller
         BackendMenu::setContext('Rebel59.Calendar', 'Calendar', 'agendas');
     }
 
-    public function index()
-    { 
-        $this->asExtension('ListController')->index();
-    }
-
     public function index_onDelete()
     {
         if (($checkedIds = post('checked'))) {
