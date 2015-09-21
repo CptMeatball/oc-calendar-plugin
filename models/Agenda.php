@@ -23,6 +23,6 @@ class Agenda extends Model
     /**
      * @var array Attributes that support translation, if available.
      */
-    public $translatable = ['name', 'location'];
+    public $translatable = ['name'];
 
 }
