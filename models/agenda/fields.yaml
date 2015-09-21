@@ -21,3 +21,4 @@ fields:
         span: right
     location:
         label: rebel59.calendar::lang.models.agenda.location
+        type: Rebel59\Calendar\FormWidgets\Address

@@ -24,6 +24,16 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'Rebel59\Calendar\FormWidgets\Address' => [
+                'label' => 'Address Widget',
+                'alias'  => 'address'
+            ]
+        ];
+    }
+
     public function registerComponents()
     {
         return [
@@ -49,5 +59,7 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+
 
 }
