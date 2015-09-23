@@ -28,4 +28,10 @@ return [
 
         ],
     ],
+    'components' => [
+        'overview' => [
+            'name' => 'Overview component',
+            'description' => 'Displays an overview of all events'
+        ]
+    ]
 ];

@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 Use Rebel59\Calendar\Models\Agenda;
+use Carbon\Carbon;
 
 class Agendas extends ComponentBase
 {
@@ -21,7 +22,19 @@ class Agendas extends ComponentBase
 
     public function onRun()
     {
-        $this->page['agendas'] = Agenda::all();
+        $this->prepareVars();
+        $this->loadAssets();
+    }
+
+    protected function prepareVars(){
+        $this->page['agendas'] = Agenda::where('date', '>=', date('Y-m-d'))->orderBy('date', 'ASC')->get();
+        $this->page['today'] = Agenda::where('date', '=', date('Y-m-d'))->count();
+        $this->page['week'] = Agenda::whereBetween('date', array(Carbon::now(), Carbon::now()->addWeek()))->count();
+        $this->page['other_weeks'] = Agenda::where('date', '>', Carbon::now()->addWeeks(2   ))->count();
+    }
+
+    protected function loadAssets(){
+        $this->addCss('/plugins/rebel59/calendar/assets/css/overview-component.css');
     }
 
 }

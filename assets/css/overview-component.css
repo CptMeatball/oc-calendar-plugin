@@ -1,0 +1,60 @@
+.today-events {
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: #27AE60;
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 1.25em;
+}
+
+.today-events .badge {
+    background-color: #2c3e50;
+    padding: 7px 14px;
+    margin: 0 5px;
+    vertical-align: text-top;
+}
+
+.agenda-holder{
+    padding-left: 0;
+    padding-right: 0;
+}
+.agenda-item {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #ECF0F1;
+    height: 120px;
+    margin: 10px 0;
+}
+.agenda-item:hover {
+    background-color: #bdc3c7;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    color: white;
+    cursor: pointer;
+}
+
+.agenda-item .date {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 50px;
+    max-width: 100px;
+}
+.date .badge {
+    background-color: #2c3e50;
+    height: 80px; 
+    vertical-align: text-bottom;
+    width: 80px;
+    margin: 10px auto;  
+    border-radius: 100%;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.agenda-item .item-content {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.item-content .name {
+    font-size: 1.75em;
+}
