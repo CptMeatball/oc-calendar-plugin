@@ -1,12 +1,66 @@
 <div class="container">
+    {% if today != 0 %}
     <div class="row">
-        <div class="col-md-12 block">
-        {%for agenda in agendas %}
-            <div class="agenda-item">
-                <h2 class="name">{{agenda.date}} | {{agenda.name}}</h2>
-                <p><span>{{ agenda.start}} - {{agenda.end}} @ {{agenda.location}}</span></p>
+        <div class="col-xs-12 today-events">
+            <span>Events scheduled for today <span class="badge">{{today}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 agenda-holder">
+        {%for agenda in agendas if agenda.today == true%}
+            <div class="agenda-item" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{agenda.date|date("M\nd")|nl2br}}<span></div>
+                <div class="item-content">
+                    <h2 class="name">{{agenda.name}}</h2>
+                    <p><span>{{ agenda.start|date('H:i')}} - {{agenda.end|date('H:i')}} @ {{agenda.location}}</span></p>
+                </div>
             </div>
         {%endfor%}
         </div>
     </div>
+    {% endif %}
+    {% if week != 0%}
+    <div class="row">
+        <div class="col-xs-12 today-events">
+            <span>Events scheduled for this week <span class="badge">{{week}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 agenda-holder">
+        {%for agenda in agendas if agenda.week == true%}
+            <div class="agenda-item" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{agenda.date|date("M\nd")|nl2br}}<span></div>
+                <div class="item-content">
+                    <h2 class="name">{{agenda.name}}</h2>
+                    <p><span>{{ agenda.start|date('H:i')}} - {{agenda.end|date('H:i')}} @ {{agenda.location}}</span></p>
+                </div>
+            </div>
+        {%endfor%}
+        </div>
+    </div>
+    {%endif%}
+    {%for agenda in agendas %}
+    {% if loop.first %}
+    <div class="row">
+        <div class="col-xs-12 today-events">
+            <span>Other upcoming events<span class="badge">{{other_weeks}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 agenda-holder">
+    {%endif%}
+    {% if (agenda.week != true and agenda.today != true) %}
+            <div class="agenda-item" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{agenda.date|date("M\nd")|nl2br}}<span></div>
+                <div class="item-content">
+                    <h2 class="name">{{agenda.name}}</h2>
+                    <p><span>{{ agenda.start|date('H:i')}} - {{agenda.end|date('H:i')}} @ {{agenda.location}}</span></p>
+                </div>
+            </div>
+    {%endif%}
+    {% if loop.last%}
+        </div>
+    </div>
+    {%endif%}
+    {%endfor%}
 </div>
