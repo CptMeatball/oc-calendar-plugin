@@ -11,6 +11,8 @@ This plugin was developed with an event list for artists in mind. Naming might b
 * Agenda Items / Events with data, starting time and end time.
 * Location with Google Places autofill
 * Front-end component for displaying items
+* Pre-styled with Flat-ui
+* Shows different 'segments' for events that occur today, upcoming week and further down the road.
 * Multi-language back-end support (only English for now, but supported none the less)
 
 ## Roadmap
