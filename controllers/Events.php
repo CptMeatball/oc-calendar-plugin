@@ -1,14 +1,14 @@
-<?php namespace Rebel59\Calendar\Controllers;
+<?php namespace Rebel59\Eventtracker\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use Rebel59\Calendar\Models\Agenda;
+use Rebel59\Eventtracker\Models\Event;
 use Flash;
 
 /**
  * students Back-end Controller
  */
-class Agendas extends Controller
+class Events extends Controller
 {
     public $implement = [
         'Backend.Behaviors.FormController',
@@ -22,18 +22,18 @@ class Agendas extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Rebel59.Calendar', 'Calendar', 'agendas');
+        BackendMenu::setContext('Rebel59.Eventtracker', 'Eventtracker', 'events');
     }
 
     public function index_onDelete()
     {
         if (($checkedIds = post('checked'))) {
             foreach ($checkedIds as $itemId) {
-                if ((!$table = Agenda::find($itemId)))
+                if ((!$table = Event::find($itemId)))
                     continue;
                 $table->delete();
             }
-            Flash::success('Successfully deleted those students.');
+            Flash::success('Successfully deleted those events.');
         }else{
             Flash::error('Something just went wrong! :(');
         }

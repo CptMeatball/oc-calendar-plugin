@@ -1,0 +1,66 @@
+<div class="container">
+    {% if today != 0 %}
+    <div class="row">
+        <div class="col-xs-12 today-events">
+            <span>Events scheduled for today <span class="badge">{{today}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 events-holder">
+        {%for event in events if event.today == true%}
+            <div class="event" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{event.date|date("M\nd")|nl2br}}<span></div>
+                <div class="event-content">
+                    <h2 class="name">{{event.name}}</h2>
+                    <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
+                </div>
+            </div>
+        {%endfor%}
+        </div>
+    </div>
+    {% endif %}
+    {% if week != 0%}
+    <div class="row">
+        <div class="col-xs-12 today-events">
+            <span>Events scheduled for this week <span class="badge">{{week}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 events-holder">
+        {%for event in events if event.week == true%}
+            <div class="event" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{event.date|date("M\nd")|nl2br}}<span></div>
+                <div class="event-content">
+                    <h2 class="name">{{event.name}}</h2>
+                    <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
+                </div>
+            </div>
+        {%endfor%}
+        </div>
+    </div>
+    {%endif%}
+    {%for event in events %}
+    {% if loop.first %}
+    <div class="row">
+        <div class="col-xs-12 today-events">
+            <span>Other upcoming events<span class="badge">{{other_weeks}}</span></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 events-holder">
+    {%endif%}
+    {% if (event.week != true and event.today != true) %}
+            <div class="event" style="padding: 10px 20px">
+                <div class="date"><span class="badge">{{event.date|date("M\nd")|nl2br}}<span></div>
+                <div class="event-content">
+                    <h2 class="name">{{event.name}}</h2>
+                    <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
+                </div>
+            </div>
+    {%endif%}
+    {% if loop.last%}
+        </div>
+    </div>
+    {%endif%}
+    {%endfor%}
+</div>

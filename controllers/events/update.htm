@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('rebel59/calendar/agendas') ?>"><?= e(trans('rebel59.calendar::lang.models.agenda.name_plural')) ?></a></li>
+        <li><a href="<?= Backend::url('rebel59/eventtracker/events') ?>"><?= e(trans('rebel59.eventtracker::lang.models.event.name_plural')) ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -20,28 +20,28 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving agenda..."
+                    data-load-indicator="Saving event..."
                     class="btn btn-primary">
-                    <?= e(trans('rebel59.calendar::lang.models.agenda.save')) ?>
+                    <?= e(trans('rebel59.eventtracker::lang.models.event.save')) ?>
                 </button>
                 <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving agenda..."
+                    data-load-indicator="Saving event..."
                     class="btn btn-default">
-                    <?= e(trans('rebel59.calendar::lang.models.agenda.save_and_close')) ?>
+                    <?= e(trans('rebel59.eventtracker::lang.models.event.save_and_close')) ?>
                 </button>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting agenda..."
-                    data-request-confirm="Do you really want to delete this agenda?">
+                    data-load-indicator="Deleting event..."
+                    data-request-confirm="Do you really want to delete this event?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('rebel59/calendar/agendas') ?>"><?= e(trans('rebel59.calendar::lang.models.agenda.cancel')) ?></a>
+                    or <a href="<?= Backend::url('rebel59/eventtracker/events') ?>"><?= e(trans('rebel59.eventtracker::lang.models.event.cancel')) ?></a>
                 </span>
             </div>
         </div>
@@ -51,6 +51,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('rebel59/calendar/agendas') ?>" class="btn btn-default">?= e(trans('rebel59.calendar::lang.models.agenda.return_agendas')) ?></a></p>
+    <p><a href="<?= Backend::url('rebel59/eventtracker/events') ?>" class="btn btn-default">?= e(trans('rebel59.eventtracker::lang.models.event.return_events')) ?></a></p>
 
 <?php endif ?>

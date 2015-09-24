@@ -1,4 +1,4 @@
-<?php namespace Rebel59\Calendar\FormWidgets;
+<?php namespace Rebel59\Eventtracker\FormWidgets;
 
 use Backend\Classes\FormWidgetBase;
 use HTML;

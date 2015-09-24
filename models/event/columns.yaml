@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: rebel59.eventtracker::lang.models.event.name
+    date:
+        label: rebel59.eventtracker::lang.models.event.date
+        type: date
+    start:
+        label: rebel59.eventtracker::lang.models.event.start_time
+    end:
+        label: rebel59.eventtracker::lang.models.event.end_time
+    location:
+        label: rebel59.eventtracker::lang.models.event.location
