@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: rebel59.eventtracker::lang.models.event.name
+
+# Model Form Field configuration
+form: $/rebel59/eventtracker/models/event/fields.yaml
+
+# Model Class name
+modelClass: Rebel59\Eventtracker\Models\Event
+
+# Default redirect location
+defaultRedirect: Rebel59/Eventtracker/events
+
+# Create page
+create:
+    title: rebel59.eventtracker::lang.models.event.create_event
+    redirect: rebel59/eventtracker/events/update/:id
+    redirectClose: rebel59/eventtracker/events
+
+# Update page
+update:
+    title: rebel59.eventtracker::lang.models.event.edit_event
+    redirect: rebel59/eventtracker/events
+    redirectClose: rebel59/eventtracker/events
+
+# Preview page
+preview:
+    title: rebel59.eventtracker::lang.models.event.preview_event

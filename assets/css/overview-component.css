@@ -15,24 +15,24 @@
     vertical-align: text-top;
 }
 
-.agenda-holder{
+.events-holder{
     padding-left: 0;
     padding-right: 0;
 }
-.agenda-item {
+.event {
     transition: background-color 0.5s ease, color 0.5s ease;
     background-color: #ECF0F1;
     height: 120px;
     margin: 10px 0;
 }
-.agenda-item:hover {
+.event:hover {
     background-color: #bdc3c7;
     transition: background-color 0.5s ease, color 0.5s ease;
     color: white;
     cursor: pointer;
 }
 
-.agenda-item .date {
+.event .date {
     display: inline-block;
     vertical-align: top;
     min-width: 50px;
@@ -50,11 +50,11 @@
     font-size: 1.5em;
 }
 
-.agenda-item .item-content {
+.event .event-content {
     display: inline-block;
     padding: 0 20px;
 }
 
-.item-content .name {
+.event-content .name {
     font-size: 1.75em;
 }

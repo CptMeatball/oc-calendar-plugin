@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/rebel59/calendar/models/agenda/columns.yaml
+list: $/rebel59/eventtracker/models/event/columns.yaml
 
 # Model Class name
-modelClass: Rebel59\Calendar\Models\Agenda
+modelClass: Rebel59\Eventtracker\Models\Event
 
 # List Title
-title: rebel59.calendar::lang.models.agenda.manage_agendas
+title: rebel59.eventtracker::lang.models.event.manage_events
 
 # Link URL for each record
-recordUrl: rebel59/calendar/agendas/update/:id
+recordUrl: rebel59/eventtracker/events/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

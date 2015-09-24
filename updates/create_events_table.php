@@ -1,4 +1,4 @@
-<?php namespace Rebel59\Calendar\Updates;
+<?php namespace Rebel59\Eventtracker\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
@@ -8,7 +8,7 @@ class CreateAgendaTable extends Migration
 
     public function up()
     {
-        Schema::create('rebel59_calendar_agendas', function($table)
+        Schema::create('rebel59_eventtracker_events', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -24,7 +24,7 @@ class CreateAgendaTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('rebel59_calendar_agendas');
+        Schema::dropIfExists('rebel59_eventtracker_agendas');
     }
 
 }
