@@ -78,3 +78,19 @@
     background: none;
     border: 0;
 }
+
+.r59-eventtracker .rsvp {
+    display: inline-block;
+    float: right;
+    text-align: center;
+}
+
+.r59-eventtracker .rsvp-button i {
+    font-size: 50px;
+}
+
+.r59-eventtracker .rsvp-button p {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 0.75em;
+}
