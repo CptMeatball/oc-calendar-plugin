@@ -1,4 +1,4 @@
-.today-events {
+.r59-eventtracker .today-events {
     border-radius: 5px;
     margin: 10px 0;
     background-color: #27AE60;
@@ -8,37 +8,48 @@
     font-size: 1.25em;
 }
 
-.today-events .badge {
+.r59-eventtracker .today-events .badge {
     background-color: #2c3e50;
     padding: 7px 14px;
     margin: 0 5px;
-    vertical-align: text-top;
+    
 }
 
-.events-holder{
+.r59-eventtracker .events-holder{
     padding-left: 0;
     padding-right: 0;
 }
-.event {
-    transition: background-color 0.5s ease, color 0.5s ease;
+.r59-eventtracker .event {
+    transition: border-bottom 0.3s ease, color 0.5s ease;
     background-color: #ECF0F1;
     height: 120px;
     margin: 10px 0;
+    border-bottom: 3px solid #2c3e50;
 }
-.event:hover {
-    background-color: #bdc3c7;
-    transition: background-color 0.5s ease, color 0.5s ease;
-    color: white;
+.r59-eventtracker .event:hover {
+    border-bottom: 6px solid #2c3e50;
+    transition: border-bottom 0.3s ease, color 0.5s ease;
     cursor: pointer;
 }
 
-.event .date {
+.r59-eventtracker .event:hover .rsvp {
+    color: #2c3e50;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.r59-eventtracker .event .rsvp {
+    color: #2c3e50;
+    font-weight: 600;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.r59-eventtracker .event .date {
     display: inline-block;
     vertical-align: top;
     min-width: 50px;
     max-width: 100px;
 }
-.date .badge {
+.r59-eventtracker .date .badge {
     background-color: #2c3e50;
     height: 80px; 
     vertical-align: text-bottom;
@@ -50,11 +61,20 @@
     font-size: 1.5em;
 }
 
-.event .event-content {
+.r59-eventtracker .event .event-content {
     display: inline-block;
     padding: 0 20px;
 }
 
-.event-content .name {
+.r59-eventtracker .event-content .name {
     font-size: 1.75em;
+}
+
+.r59-eventtracker form {
+    display: none;
+}
+
+.r59-eventtracker button {
+    background: none;
+    border: 0;
 }
