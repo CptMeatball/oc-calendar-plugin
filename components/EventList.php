@@ -31,7 +31,7 @@ class EventList extends ComponentBase
         $this->page['events'] = $events = Event::where('date', '>=', date('Y-m-d'))->orderBy('date', 'ASC')->get();
         $this->page['today'] = Event::where('date', '=', date('Y-m-d'))->count();
         $this->page['week'] = Event::whereBetween('date', array(Carbon::now(), Carbon::now()->addWeek()))->count();
-        $this->page['other_weeks'] = Event::where('date', '>', Carbon::now()->addWeeks(2   ))->count();
+        $this->page['other_weeks'] = Event::where('date', '>', Carbon::now()->addWeeks(2))->count();
 
         foreach($events as $event){
             $cookies[$event['id']] = Cookie::get('event-'.$event['id']);
@@ -41,14 +41,16 @@ class EventList extends ComponentBase
 
     protected function loadAssets(){
         $this->addCss('/plugins/rebel59/eventtracker/assets/css/overview-component.css');
-    }
+    }   
 
     public function onPlusOne(){
         $eventId = post('eventId');
+        $date = Carbon::createFromFormat('Y-m-d H:i:s', post('date'))->addDay();
+        $minutes = Carbon::now()->diffInMinutes($date);
         $eventName = "event-" . $eventId;
         $event = Event::find($eventId);
         if(!Cookie::get($eventName)){
-            Cookie::queue($eventName, $eventId, 2000000); 
+            Cookie::queue($eventName, $eventId, $minutes); 
             $event->visitors++;
             $data = 1;
         }else{
