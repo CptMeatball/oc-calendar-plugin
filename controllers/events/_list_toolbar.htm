@@ -4,7 +4,7 @@
             class="btn btn-default oc-icon-trash-o"
             disabled="disabled"
             onclick="$(this).data('request-data', {
-                checked: $('.control-list').listWidget('getchecked')
+                checked: $('.control-list').listWidget('getChecked')
             })"
             data-request="onDelete"
             data-request-confirm="Confirm"
@@ -14,4 +14,5 @@
             data-stripe-load-indicator>
             <?= e(trans('rebel59.eventtracker::lang.models.event.delete_event')) ?>
         </button>
+
 </div>
