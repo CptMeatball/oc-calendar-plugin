@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container r59-eventtracker" >
+{% if events is not empty %}
     {% if today != 0 %}
     <div class="row">
         <div class="col-xs-12 today-events">
@@ -14,6 +15,37 @@
                     <h2 class="name">{{event.name}}</h2>
                     <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
                 </div>
+                    <div id="rsvp-{{event.id}}" class="rsvp" style="display: inline-block; float: right;">
+                    <button type="submit" data-event="{{event.id}}">
+                        {%if cookie[event.id]%}
+                            <i class="fa fa-calendar-check-o"></i>
+                        {%else%}
+                            <i class="fa fa-calendar-plus-o"></i>
+                        {%endif%}
+                    </button>
+                    
+                        <span class="visitor"><span class="amount">{{event.visitors}}</span> are going!</span>
+                    
+                    {% put scripts %}
+                        <script type="text/javascript">
+                            $(function(){
+                                $('button[data-event={{event.id}}]').on('click', function(){
+                                    $.request('onPlusOne', {
+                                        data: {eventId: {{event.id}}},
+                                        success: function(data) {
+                                            console.log(data);
+                                            $('button[data-event={{event.id}}]>i').toggleClass('fa-calendar-plus-o').toggleClass('fa-calendar-check-o');
+                                            amount = $('#rsvp-{{event.id}} .amount').html();
+                                            $('#rsvp-{{event.id}} .amount').html(parseInt(amount)+data.state);
+                                        }
+                                        }); 
+                                    return false;
+                                })
+                            });
+                        </script>
+                    {% endput %}
+                </div>
+                
             </div>
         {%endfor%}
         </div>
@@ -33,6 +65,36 @@
                 <div class="event-content">
                     <h2 class="name">{{event.name}}</h2>
                     <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
+                </div>
+                <div id="rsvp-{{event.id}}" class="rsvp" style="display: inline-block; float: right;">
+                    <button type="submit" data-event="{{event.id}}">
+                        {%if cookie[event.id]%}
+                            <i class="fa fa-calendar-check-o"></i>
+                        {%else%}
+                            <i class="fa fa-calendar-plus-o"></i>
+                        {%endif%}
+                    </button>
+                    
+                        <span class="visitor"><span class="amount">{{event.visitors}}</span> are going!</span>
+                    
+                    {% put scripts %}
+                        <script type="text/javascript">
+                            $(function(){
+                                $('button[data-event={{event.id}}]').on('click', function(){
+                                    $.request('onPlusOne', {
+                                        data: {eventId: {{event.id}}},
+                                        success: function(data) {
+                                            console.log(data);
+                                            $('button[data-event={{event.id}}]>i').toggleClass('fa-calendar-plus-o').toggleClass('fa-calendar-check-o');
+                                            amount = $('#rsvp-{{event.id}} .amount').html();
+                                            $('#rsvp-{{event.id}} .amount').html(parseInt(amount)+data.state);
+                                        }
+                                        }); 
+                                    return false;
+                                })
+                            });
+                        </script>
+                    {% endput %}
                 </div>
             </div>
         {%endfor%}
@@ -55,7 +117,38 @@
                 <div class="event-content">
                     <h2 class="name">{{event.name}}</h2>
                     <p><span>{{ event.start|date('H:i')}} - {{event.end|date('H:i')}} @ {{event.location}}</span></p>
+                    </div>
+                    <div id="rsvp-{{event.id}}" class="rsvp" style="display: inline-block; float: right;">
+                    <button type="submit" data-event="{{event.id}}">
+                        {%if cookie[event.id]%}
+                            <i class="fa fa-calendar-check-o"></i>
+                        {%else%}
+                            <i class="fa fa-calendar-plus-o"></i>
+                        {%endif%}
+                    </button>
+                    
+                        <span class="visitor"><span class="amount">{{event.visitors}}</span> are going!</span>
+                    
+                    {% put scripts %}
+                        <script type="text/javascript">
+                            $(function(){
+                                $('button[data-event={{event.id}}]').on('click', function(){
+                                    $.request('onPlusOne', {
+                                        data: {eventId: {{event.id}}},
+                                        success: function(data) {
+                                            console.log(data);
+                                            $('button[data-event={{event.id}}]>i').toggleClass('fa-calendar-plus-o').toggleClass('fa-calendar-check-o');
+                                            amount = $('#rsvp-{{event.id}} .amount').html();
+                                            $('#rsvp-{{event.id}} .amount').html(parseInt(amount)+data.state);
+                                        }
+                                        }); 
+                                    return false;
+                                })
+                            });
+                        </script>
+                    {% endput %}
                 </div>
+                
             </div>
     {%endif%}
     {% if loop.last%}
@@ -63,4 +156,15 @@
     </div>
     {%endif%}
     {%endfor%}
+{%else%}
+<div class="row">
+    <div class="col-xs-12">
+        <span>There are currently no events scheduled. Please check back later!</span> <h1>{{cookie}}</h1>
+
+
+       
+    </div>
+</div>
+
+{%endif%}
 </div>

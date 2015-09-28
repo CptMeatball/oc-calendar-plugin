@@ -6,7 +6,7 @@ use Rebel59\Eventtracker\Models\Event;
 use Flash;
 
 /**
- * students Back-end Controller
+ * Events Back-end Controller
  */
 class Events extends Controller
 {

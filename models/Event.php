@@ -15,6 +15,8 @@ class Event extends Model
     public $table = 'rebel59_eventtracker_events';
 
     public $dates = ['date'];
+    use \October\Rain\Database\Traits\Purgeable;
+    public $purgeable = ['week', 'today'];
 
 
      /**

@@ -17,6 +17,7 @@ class CreateAgendaTable extends Migration
             $table->time('start');
             $table->time('end');
             $table->string('location');
+            $table->integer('visitors');
             $table->timestamps();
         });
 
@@ -24,7 +25,7 @@ class CreateAgendaTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('rebel59_eventtracker_agendas');
+        Schema::dropIfExists('rebel59_eventtracker_events');
     }
 
 }
